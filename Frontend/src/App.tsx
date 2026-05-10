@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import type React from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import {
   Upload, Send, FileText, Loader2, Search, Settings, X,
-  Plus, Paperclip, Zap, ChevronRight, Layers, type LucideIcon,
-  PanelRightClose, PanelRightOpen, Hash, Clock, Database, Sparkles,
-  AlertCircle
+  Plus, Paperclip, Layers, PanelRightClose, PanelRightOpen,
+  Database, Sparkles, AlertCircle
 } from 'lucide-react';
 import { uploadFile, uploadRawText, sendQuery, deleteSession } from './services/api';
 import './App.css';

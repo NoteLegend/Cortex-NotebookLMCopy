@@ -1,5 +1,4 @@
-const BASE_URL = 'https://notebook-llm-theta.vercel.app/Backend';
-// const BASE_URL = 'http://127.0.0.1:8000/Backend';
+const BASE_URL = '/api';
 
 export const uploadFile = async (file: File): Promise<string> => {
   const formData = new FormData();

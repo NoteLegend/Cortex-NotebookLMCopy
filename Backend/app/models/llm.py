@@ -1,5 +1,5 @@
 from pydantic import BaseModel
 
 class Search(BaseModel):
-    need_search: bool
+    needs_search: bool
     search_query: str | None = None

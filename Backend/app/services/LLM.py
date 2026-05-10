@@ -30,12 +30,7 @@ async def handel_user_query(query: str , session_id):
     history += f"\nuser : {query}"
 
     response_format = {
-        "type" : "json_schema",
-        "json_schema" : {
-            "name" : "SearchSchema",
-            "schema" : Search.model_json_schema(),
-            "strict" : True
-        }
+        "type" : "json_object"
     }
 
     search_data_json = (await client.chat_completion(

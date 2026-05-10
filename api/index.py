@@ -1,18 +1,24 @@
 """
 Vercel serverless entry point.
-Imports the FastAPI app from Backend/ and mounts routes at /api.
 """
 
 import sys
 import os
 
-# Add Backend directory to Python path so imports like `app.routes.*` resolve
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'Backend'))
+sys.path.insert(
+    0,
+    os.path.join(os.path.dirname(__file__), "..", "Backend")
+)
 
 from dotenv import load_dotenv
 
-# Load .env from Backend directory for local testing
-dotenv_path = os.path.join(os.path.dirname(__file__), '..', 'Backend', '.env')
+dotenv_path = os.path.join(
+    os.path.dirname(__file__),
+    "..",
+    "Backend",
+    ".env"
+)
+
 if os.path.exists(dotenv_path):
     load_dotenv(dotenv_path)
 
@@ -30,10 +36,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount all routes under /api prefix
-app.include_router(router, prefix="/api")
+# IMPORTANT:
+# Do NOT prefix /api here
+app.include_router(router)
 
-
-@app.get("/api")
+@app.get("/")
 def health():
     return {"status": "ok"}

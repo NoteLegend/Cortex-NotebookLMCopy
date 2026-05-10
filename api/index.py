@@ -37,9 +37,9 @@ app.add_middleware(
 )
 
 # IMPORTANT:
-# Do NOT prefix /api here
-app.include_router(router)
+# Vercel sends the full path /api/... to the function, so we MUST prefix it.
+app.include_router(router, prefix="/api")
 
-@app.get("/")
+@app.get("/api")
 def health():
     return {"status": "ok"}

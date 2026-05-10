@@ -1,4 +1,6 @@
-const BASE_URL = '/api';
+// This will read the backend URL from Vercel's environment variables.
+// If running locally without env vars, it defaults to the local FastAPI port.
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api';
 
 export const uploadFile = async (file: File): Promise<string> => {
   const formData = new FormData();
